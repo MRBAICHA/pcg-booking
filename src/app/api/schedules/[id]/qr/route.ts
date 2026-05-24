@@ -32,7 +32,7 @@ export async function GET(
       margin: 2,
       color: { dark: '#1e3a8a', light: '#ffffff' },
     });
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       headers: { 'Content-Type': 'image/png' },
     });
   }
