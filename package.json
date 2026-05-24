@@ -1,0 +1,48 @@
+{
+  "name": "pcg-car-booking",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "prisma generate && next build",
+    "start": "next start -p ${PORT:-3000}",
+    "lint": "next lint",
+    "db:push": "prisma db push",
+    "db:seed": "npx tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "postinstall": "prisma generate",
+    "tunnel": "ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=15 -R 80:localhost:3002 localhost.run"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "html5-qrcode": "^2.3.8",
+    "jose": "^5.3.0",
+    "jsqr": "^1.4.0",
+    "lucide-react": "^0.378.0",
+    "next": "14.2.3",
+    "qrcode": "^1.5.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "prisma": "^5.13.0",
+    "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.22.3",
+    "typescript": "^5"
+  }
+}

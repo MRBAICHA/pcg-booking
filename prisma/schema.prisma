@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  employeeId   String    @unique
+  name         String
+  nameEn       String?
+  email        String?   @unique
+  phone        String?
+  department   String?
+  position     String?
+  role         String    @default("EMPLOYEE")
+  password     String
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  bookings     Booking[]
+  checkIns     CheckIn[]
+}
+
+model Route {
+  id          String     @id @default(cuid())
+  name        String
+  origin      String
+  destination String
+  description String?
+  capacity    Int        @default(30)
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  pickupLat   Float?
+  pickupLng   Float?
+  pickupRadius Int       @default(300)
+  schedules   Schedule[]
+}
+
+model Schedule {
+  id        String    @id @default(cuid())
+  routeId   String
+  route     Route     @relation(fields: [routeId], references: [id])
+  date      String
+  departAt  String
+  capacity  Int
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  bookings  Booking[]
+
+  @@unique([routeId, date, departAt])
+}
+
+model Booking {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  scheduleId String
+  schedule   Schedule @relation(fields: [scheduleId], references: [id])
+  status     String   @default("CONFIRMED")
+  note       String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  checkIn    CheckIn?
+
+  @@unique([userId, scheduleId])
+}
+
+model CheckIn {
+  id         String    @id @default(cuid())
+  bookingId  String    @unique
+  booking    Booking   @relation(fields: [bookingId], references: [id])
+  userId     String
+  user       User      @relation(fields: [userId], references: [id])
+  checkedAt  DateTime  @default(now())
+  latitude   Float?
+  longitude  Float?
+  method     String    @default("MANUAL")
+  verifiedBy String?
+  verifiedAt DateTime?
+  note       String?
+}

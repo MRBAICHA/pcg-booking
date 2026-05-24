@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" width="520" height="340">
+  <rect x="6" y="6" width="508" height="328" rx="52" ry="52" fill="#1B3464" stroke="white" stroke-width="10"/>
+  <text
+    x="260"
+    y="243"
+    font-family="'Arial Black', 'Arial', 'Helvetica Neue', sans-serif"
+    font-weight="900"
+    font-size="196"
+    fill="white"
+    text-anchor="middle"
+    letter-spacing="-4"
+  >PCG</text>
+</svg>
