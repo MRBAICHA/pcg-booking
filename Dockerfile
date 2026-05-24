@@ -47,6 +47,9 @@ COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 COPY --chown=nextjs:nodejs docker-entrypoint.sh ./
 RUN chmod +x docker-entrypoint.sh
 
+# สร้าง data directory ก่อน switch user
+RUN mkdir -p /app/prisma/data && chown -R nextjs:nodejs /app/prisma/data
+
 USER nextjs
 EXPOSE 3000
 
