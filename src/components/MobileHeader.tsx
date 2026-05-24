@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import PcgLogo from '@/components/PcgLogo';
 
 interface MobileHeaderProps {
   title: string;
@@ -27,7 +28,7 @@ export default function MobileHeader({ title, subtitle, userName, showLogout }: 
         </div>
         <div className="flex items-center gap-3">
           <div className="w-10 h-7 flex items-center justify-center">
-            <img src="/logo.svg" alt="PCG" className="h-full w-auto" />
+            <PcgLogo className="h-full w-auto" />
           </div>
           {showLogout && (
             <button

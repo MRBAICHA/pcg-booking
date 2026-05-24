@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import PcgLogo from '@/components/PcgLogo';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function LoginPage() {
         {/* Logo area */}
         <div className="mb-8 text-center">
           <div className="mx-auto mb-4 w-32">
-            <img src="/logo.svg" alt="PCG" className="w-full h-auto drop-shadow-lg" />
+            <PcgLogo className="w-full h-auto drop-shadow-lg" />
           </div>
           <h1 className="text-white text-2xl font-bold">ระบบจองรถรับส่ง</h1>
           <p className="text-blue-200 text-sm mt-1">Perfect Companion Group</p>

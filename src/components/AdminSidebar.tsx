@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import PcgLogo from '@/components/PcgLogo';
 
 const navItems = [
   {
@@ -75,7 +76,7 @@ export default function AdminSidebar() {
       <div className="px-6 py-6 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-14 h-9 flex items-center justify-center flex-shrink-0">
-            <img src="/logo.svg" alt="PCG" className="h-full w-auto" />
+            <PcgLogo className="h-full w-auto" />
           </div>
           <div>
             <p className="text-white font-bold text-sm">Car Booking</p>

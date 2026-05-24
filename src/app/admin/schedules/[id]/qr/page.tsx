@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { formatDateThai } from '@/lib/utils';
+import PcgLogo from '@/components/PcgLogo';
 
 interface ScheduleInfo {
   qrSvg: string;
@@ -98,7 +99,7 @@ export default function ScheduleQRPage() {
           {/* Header */}
           <div className="mb-6">
             <div className="mx-auto mb-3 w-24">
-              <img src="/logo.svg" alt="PCG" className="w-full h-auto" />
+              <PcgLogo className="w-full h-auto" />
             </div>
             <p className="text-pcg-blue font-black text-lg">รถรับส่งพนักงาน</p>
             <p className="text-gray-500 text-xs">Perfect Companion Group</p>
